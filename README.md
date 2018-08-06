@@ -1,3 +1,19 @@
+
+### Configuration
+master.yaml is a master CloudFormation Stack that contains 6 other nested stacks. Most Parameters are set in master.yaml file and passed through nested stacks. 
+
+Application source code is in the [services/simple-go-web-app-master](services/simple-go-web-app-master) folder and it's nested stack is in [services/simple-go-web-app-master/service.yaml](services/simple-go-web-app-master/service.yaml) that can be run seperatly to update the stack. 
+
+
+### Launch this CloudFormation stack in your account:
+Master.yaml will run all the stacks while you could run one of the stack to just update them. 
+
+| AWS Region | Short name | | 
+| -- | -- | -- |
+| Asia Pacific (Sydney) | ap-southeast-2 | [![cloudformation-launch-button](img/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/new?stackName=Production&templateURL=https://s3.amazonaws.com/arash-ecs-clf/master.yaml) |
+
+
+
 ## Architecture
 
 ![iArchitecture](img/aws.png)
@@ -20,20 +36,10 @@ The repository consists of a set of nested templates that deploy the following:
 Just add the stack name with Env name(dev, test, production) and deploy another CloudFormation stack. Stacks will add prefixed to all taggable resources so you can distinguish the different environment resources in the AWS Management Console. 
 
 
-### Configuration
-master.yaml is a master CloudFormation Stack that contains 6 other nested stacks. Most Parameters are set in master.yaml file and passed through nested stacks. 
-
-
-### Launch this CloudFormation stack in your account:
-
-| AWS Region | Short name | | 
-| -- | -- | -- |
-| Asia Pacific (Sydney) | ap-southeast-2 | [![cloudformation-launch-button](img/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/new?stackName=Production&templateURL=https://s3.amazonaws.com/arash-ecs-clf/master.yaml) |
-
 
 ### TO DO
 - finalise CI/CD and Test
-- add another listener for HTTP tO HTTPS redirection in Load Balancer. It requires another Load Balancer Listener to redired http to https then https forward to target group. The redirection need to have a SslPolicy, Certificates, and DefaultActions should be redirect
+- add another listener for HTTP to HTTPS redirection in Load Balancer. It requires another Load Balancer Listener to redired http to https then https forward to target group. The redirection need to have a SslPolicy, Certificates, and DefaultActions should be redirect
 ```
 	HttpToHttpsListener:
 		Type: AWS::ElasticLoadBalancingV2::Listener
