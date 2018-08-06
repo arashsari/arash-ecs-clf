@@ -34,7 +34,7 @@ master.yaml is a master CloudFormation Stack that contains 6 other nested stacks
 ### TO DO
 - finalise CI/CD and Test
 - add another listener for HTTP tO HTTPS redirection in Load Balancer. It requires another Load Balancer Listener to redired http to https then https forward to target group. The redirection need to have a SslPolicy, Certificates, and DefaultActions should be redirect
-
+```
 	HttpToHttpsListener:
 		Type: AWS::ElasticLoadBalancingV2::Listener
 		Properties: 
@@ -46,3 +46,4 @@ master.yaml is a master CloudFormation Stack that contains 6 other nested stacks
 		  Port: Integer
 		  Protocol: String
 		  SslPolicy: String
+```
