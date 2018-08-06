@@ -1,4 +1,9 @@
 
+### Application URL (ALB DNS)
+
+[Simple Go Web App](http://ecs-simple-go-webapp-1568821535.ap-southeast-2.elb.amazonaws.com/)
+
+
 ### Configuration
 master.yaml is a master CloudFormation Stack that contains 6 other nested stacks. Most Parameters are set in master.yaml file and passed through nested stacks. 
 
@@ -17,6 +22,11 @@ Master.yaml will run all the stacks while you could run one of the stack to just
 ## Architecture
 
 ![iArchitecture](img/aws.png)
+
+
+## Stacks Relationship (Entity Relationship)
+
+![ER](img/template-ER.png)
 
 
 The repository consists of a set of nested templates that deploy the following:
